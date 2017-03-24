@@ -79,7 +79,7 @@ class Server extends \Swoole\Server {
 		}
 	}
 	
-	public function set($setting = []) {
+	public function setting($setting = []) {
 		
 		if (false === empty($this->service) && true === isset($this->config[$this->service])) {
 			$this->config[$this->service] = array_merge($this->config['global'], $this->config[$this->service]);
@@ -103,7 +103,7 @@ class Server extends \Swoole\Server {
 	}
 	
 	public function boot(array $callback) {
-		$this->set();
+		$this->setting();
 		$this->_bind($callback);
 		parent::start();
 	}

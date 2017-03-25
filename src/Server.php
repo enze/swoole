@@ -114,8 +114,9 @@ class Server extends \Swoole\Server {
 		/*
 		 * 如果指定服务，则合并该服务下的配置与全局配置
 		 */
-		if (false === empty($this->service) && true === isset($this->config[$this->service])) {
-			$this->config[$this->service] = array_merge($config['global'], $config[$this->service]);
+		if (false === empty($this->service) && true === isset($config[$this->service])) {
+			$config[$this->service] = array_merge($config['global'], $config[$this->service]);
+			unset($config['global']);
 		}
 		
 		/*
@@ -169,7 +170,6 @@ class Server extends \Swoole\Server {
 		 * 指定某一个服务运行仅设置该服务下的配置
 		 */
 		if (false === empty($this->service) && true === isset($this->config[$this->service])) {
-			$this->config[$this->service] = array_merge($this->config['global'], $this->config[$this->service]);
 			$setting = $this->config[$this->service];
 			unset($setting['host'], $setting['port'], $setting['mode'], $setting['socket']);
 			parent::set($setting);

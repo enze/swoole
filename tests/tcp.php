@@ -1,8 +1,8 @@
 <?php
 
 $data = [
-	'type' => 'captcha',
-	'phone' => '15902143887',
+	'type' => 'notify',
+	'phone' => 'xxxxx',
 	'message' => '1234',
 ];
 

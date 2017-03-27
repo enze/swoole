@@ -1,7 +1,9 @@
 {
 	"name" : "xb/swoole",
-	"description" : "php swoole",
+	"description" : "xbsoft socket framework, use swoole",
 	"version" : "1.0.0",
+    "type": "library",
+    "license": "MIT",
 	"authors" : [
 		{
 			"name" : "enze.wei",
